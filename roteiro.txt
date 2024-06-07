@@ -1,0 +1,44 @@
+- baixar o git
+- github, cria novo rep
+- clica em code, copia o link
+- abre o vscode, acessa a pasta raiz dos projetos
+- git clone <link>
+- abrir a pasta pelo vs code
+- criar um readme.md
+- terminal:
+- > git init
+- > git add .
+- > git commit -m "First commit"
+- > git push origin main
+
+- criar requirements.txt
+- selenium
+- numpy
+- pandas
+- tqdm
+
+- terminal: pip install -r requirements.txt
+
+- criar um main.py (01.py)
+
+- Explicar
+.get('link')
+.get(f'http://www.{link}.com)
+time.sleep(2)
+.find_element(By.CSS_SELECTOR, '.class #id') 
+.find_element(By.CSS_SELECTOR, '...').text
+.find_elements(By.CSS_SELECTOR, '...') --> iterar usando for item in items:
+.get_attribute("id")
+.click() e execute_script("arguments[0].click();", element)
+
+- Explicar salvar em CSV (https://github.com/andreluizfrancabatista/flashscorewebscrapping/blob/main/last30_under25FT.py)
+- Criar um dict vazio com as chaves definidas
+- Append dados em cada chave do dict (se pular uma chave, dá erro)
+- Salvar dict em df pandas
+- Faz ajustes necessários no df, sort, reset_index, rename col, ...
+- Salva o df no csv df.to_csv(filename)
+
+- Tópicos avançados específicos do site flashscore.com
+- Jogos fechados
+- Dias de jogos (5 pra trás, e 5 pra frente)
+- 

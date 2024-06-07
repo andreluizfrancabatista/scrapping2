@@ -1,19 +1,8 @@
-# Instalando o Selenium
-# !pip install selenium
-
-# Atualizando o Ubuntu para executar corretamento o apt-install
-# !apt-get update
-
-# Instalando o ChromeDrive e Trazendo ele para a Pasta Local
-# !apt install chromium-chromedriver
-
-# !cp /usr/lib/chromium-browser/chromedriver /usr/bin
 import sys
-sys.path.insert(0,'/usr/lib/chromium-browser/chromedriver')
 import os
 import numpy as np
-"""# Configuração do Web-Driver"""
 
+"""# Configuração do Web-Driver"""
 # Utilizando o WebDriver do Selenium
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -33,12 +22,11 @@ options.add_argument('--start-maximized')
 options.add_argument('--ignore-certificate-errors')
 options.add_argument('--disable-crash-reporter')
 options.add_argument('--log-level=3')
+options.add_argument('--disable-gpu')
 
 
 # Criação do WebDriver do Chrome
-# wd_Chrome = webdriver.Chrome('chromedriver',options=options)
 wd_Chrome = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-
 
 """# Importando as Bibliotecas"""
 
@@ -51,3 +39,14 @@ from tqdm import tqdm
 # Com o WebDrive a gente consegue a pedir a página (URL)
 wd_Chrome.get("https://www.flashscore.com/") 
 time.sleep(2)
+evento = wd_Chrome.find_elements(By.CSS_SELECTOR, 'div.event__match--twoLine')[0]
+home = evento.find_element(By.CSS_SELECTOR, 'div.event__homeParticipant').text
+away = evento.find_element(By.CSS_SELECTOR, 'div.event__awayParticipant').text
+print(f'Evento: {home} x {away}')
+
+# Completar:
+# Acessar páginas diferentes (ao vivo, encerrados, próximos, odds) com .click() ou execute_script()
+# Pegar o placar do jogo
+# Pegar o tempo de jogo
+# Acessar a página específica de um jogo e pegar stats
+# Acessar a página específica de um time e pegar placares passados
